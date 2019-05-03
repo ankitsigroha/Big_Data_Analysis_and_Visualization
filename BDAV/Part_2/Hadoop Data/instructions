@@ -1,0 +1,8 @@
+#creating the particular format
+sed -e "s/\([a-z0-9\'\.\_\-\=\\\/\:\*\(\)\+\@\&\~]\+\)\t\([0-9]\+\)/\2 \1/g" part-00000 >sorted.txt
+
+#sorting according to numbers
+sort -n -r sorted.txt >final.txt
+
+#creating file in incomplete json format
+sed -e "s/\([0-9]\+\) \([a-z0-9\'\.\_\-\=\\\/\:\*\(\)\+\@\&\~]\+\)/\{text\: \'\2\', size\: \'\1\'\}\,/g" final.txt >json.txt

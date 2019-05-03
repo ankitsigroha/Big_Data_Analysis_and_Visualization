@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>DIC Lab 2</title>
+    <script src="d3.js" charset="utf-8"></script>
+    <script src="d3.layout.cloud.js"></script>
+    <script src="d3.wordcloud.js"></script>
+    <script src="example.words.js"></script>
+    <script src="cooccur.js"></script>
+    <script src="oneday.js"></script>
+  </head>
+  <body style="text-align: center">
+    <h1>Full week data</h1>
+    <div id='wordcloud'></div>
+    <br>
+    <h1>Cooccurence of words</h1>
+    <div id='cooccurence'></div>
+    <h1> One day tweets</h1>
+    <div id="oneday"></div>
+    <script>
+      d3.wordcloud()
+        .size([700, 400])
+        .words(alltweets)
+        .selector('#wordcloud')
+        .onwordclick(function(d, i) {
+          if (d.href) { window.location = d.href; }
+        })
+        .start();
+
+      d3.wordcloud()
+        .size([800,300])
+        .words(cooccur)
+        .selector('#cooccurence')
+        .onwordclick(function(d, i) {
+          if (d.href) { window.location = d.href; }
+        })
+        .start();
+
+        d3.wordcloud()
+        .size([700, 500])
+        .words(oneday)
+        .selector('#oneday')
+        .onwordclick(function(d, i) {
+          if (d.href) { window.location = d.href; }
+        })
+        .start();
+    </script>
+  </body>
+</html>

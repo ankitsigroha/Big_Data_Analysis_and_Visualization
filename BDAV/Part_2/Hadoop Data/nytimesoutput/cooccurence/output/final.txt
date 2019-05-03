@@ -1,0 +1,17 @@
+110 students:people
+86 violence:people
+84 violence:students
+82 people:killed
+36 students:killed
+25 violence:killed
+17 people:america
+11 people:mother
+10 violence:america
+5 students:nra
+5 students:mother
+3 violence:nra
+2 students:gunviolence
+2 mother:killed
+2 killed:america
+1 students:america
+1 people:nra

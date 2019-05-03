@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>DIC Lab 2</title>
+    <script src="d3.js" charset="utf-8"></script>
+    <script src="d3.layout.cloud.js"></script>
+    <script src="d3.wordcloud.js"></script>
+    <script src="nyfull.js"></script>
+    <script src="nycooccur.js"></script>
+    <script src="nyoneday.js"></script>
+  </head>
+  <body style="text-align: center">
+    <h1>Full week data</h1>
+    <div id='wordcloud'></div>
+    <br>
+    <h1>Cooccurence of words</h1>
+    <div id='cooccurence'></div>
+    <h1> One day data</h1>
+    <div id="oneday"></div>
+    <script>
+      d3.wordcloud()
+        .size([700, 400])
+        .words(nyfull)
+        .selector('#wordcloud')
+        .onwordclick(function(d, i) {
+          if (d.href) { window.location = d.href; }
+        })
+        .start();
+
+        d3.wordcloud()
+        .size([400, 400])
+        .words(nycooccur)
+        .selector('#cooccurence')
+        .onwordclick(function(d, i) {
+          if (d.href) { window.location = d.href; }
+        })
+        .start();
+
+        d3.wordcloud()
+        .size([500, 300])
+        .words(nyoneday)
+        .selector('#oneday')
+        .onwordclick(function(d, i) {
+          if (d.href) { window.location = d.href; }
+        })
+        .start();
+
+    </script>
+  </body>
+</html>
